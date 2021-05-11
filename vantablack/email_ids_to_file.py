@@ -36,7 +36,9 @@ def getting_all_email_ids(api_key: str) -> List:
 
     ids: List = []
     for item in emails_list:
-        ids.append(str(item['id']))
+        if 'campaignName' in item:
+            if item['isPublished'] == True and item['ab'] == False:
+                ids.append(str(item['id']))
     print("list from ids has {} results".format(len(ids)))
     return ids
 

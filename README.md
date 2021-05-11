@@ -18,35 +18,39 @@ Needed credentials:
 ### windows
 
 **Deploy Full Workflow**:
-
-* env\Scripts\python -m package_hubspot.fetch_csv^
+```
+* env\Scripts\python -m vantablack.wrapper^
     --api_key_path credentials\hubspot_api_key^
     --filename joined_data.csv
-
+```
+```
 Getting Email Ids:
 * env\Scripts\python -m vantablack.email_ids_to_file^
     --directory env\emails_directory^
     --api_key_path credentials/hubspot_api_key
-
+```
+```
 Getting Email Statistics:
 * env\Scripts\python -m vantablack.email_statistics_to_directory^
     --directory env\email_statistics^
     --file_ids_path env\emails_directory\emails_ids.json^
     --api_key_path credentials/hubspot_api_key
-
+```
+```
 Getting Email Events Hubspot:
 * env\Scripts\python -m vantablack.email_click_events_to_directory^
     --directory env\email_click_events^
     --directory_ids_path env\email_statistics^
     --api_key_path credentials/hubspot_api_key^
     --eventType CLICK
-
+```
+```
 Appending
 * env\Scripts\python -m vantablack.merging_events_with_emails^
     --directory_emails env\email_statistics^
     --directory_events env\email_click_events^
     --filename joined_data.csv
-
+```
 #### windows_installation
 
 1. install virtualenv:
